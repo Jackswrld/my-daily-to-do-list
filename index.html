@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Daily To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>My Daily To-Do List</h1>
+        <div class="date" id="currentDate"></div>
+      </div>
+
+      <div class="content">
+        <div class="section morning">
+          <h2><span class="section-icon">🌅</span>Morning Tasks</h2>
+          <div class="add-task-form">
+            <input
+              type="text"
+              class="task-input"
+              placeholder="Add a morning task..."
+              data-section="morning"
+            />
+            <div class="time-inputs">
+              <input
+                type="time"
+                class="time-input"
+                data-section="morning"
+                data-time="start"
+                value="05:00"
+              />
+              <span class="time-separator">to</span>
+              <input
+                type="time"
+                class="time-input"
+                data-section="morning"
+                data-time="end"
+                value="11:00"
+              />
+            </div>
+            <button class="add-btn" onclick="addTask('morning')">Add</button>
+          </div>
+          <ul class="task-list" id="morning-tasks">
+            <li class="task-item morning">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Say my morning prayers</span>
+              <span class="task-time">(6:00 AM - 7:00 AM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+            <li class="task-item morning">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Have breakfeast </span>
+              <span class="task-time">(7:00 AM - 8:00 AM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+            <li class="task-item morning">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Practice my programming course</span>
+              <span class="task-time">(8:00 AM - 10:00 AM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+          </ul>
+          <div class="progress-bar">
+            <div class="progress-fill" id="morning-progress"></div>
+          </div>
+          <div class="stats" id="morning-stats"></div>
+        </div>
+
+        <div class="section afternoon">
+          <h2><span class="section-icon">☀️</span>Afternoon Tasks</h2>
+          <div class="add-task-form">
+            <input
+              type="text"
+              class="task-input"
+              placeholder="Add an afternoon task..."
+              data-section="afternoon"
+            />
+            <div class="time-inputs">
+              <input
+                type="time"
+                class="time-input"
+                data-section="afternoon"
+                data-time="start"
+                value="12:00"
+              />
+              <span class="time-separator">to</span>
+              <input
+                type="time"
+                class="time-input"
+                data-section="afternoon"
+                data-time="end"
+                value="16:00"
+              />
+            </div>
+            <button class="add-btn" onclick="addTask('afternoon')">Add</button>
+          </div>
+          <ul class="task-list" id="afternoon-tasks">
+            <li class="task-item afternoon">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Review code assignments</span>
+              <span class="task-time">(12:00 PM - 1:00 PM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+            <li class="task-item afternoon">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Find resources for a new project</span>
+              <span class="task-time">(1:10 PM - 3:00 PM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+
+            <li class="task-item afternoon">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Work on project</span>
+              <span class="task-time">(3:30 PM - 4:00 PM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+          </ul>
+          <div class="progress-bar">
+            <div class="progress-fill" id="afternoon-progress"></div>
+          </div>
+          <div class="stats" id="afternoon-stats"></div>
+        </div>
+
+        <div class="section evening">
+          <h2><span class="section-icon">🌙</span>Evening Tasks</h2>
+          <div class="add-task-form">
+            <input
+              type="text"
+              class="task-input"
+              placeholder="Add an evening task..."
+              data-section="evening"
+            />
+            <div class="time-inputs">
+              <input
+                type="time"
+                class="time-input"
+                data-section="evening"
+                data-time="start"
+                value="17:00"
+              />
+              <span class="time-separator">to</span>
+              <input
+                type="time"
+                class="time-input"
+                data-section="evening"
+                data-time="end"
+                value="23:00"
+              />
+            </div>
+            <button class="add-btn" onclick="addTask('evening')">Add</button>
+          </div>
+          <ul class="task-list" id="evening-tasks">
+            <li class="task-item evening">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Plan tomorrow's tasks</span>
+              <span class="task-time">(5:00 PM - 6:00 PM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+            <li class="task-item evening">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">Read programming documentation</span>
+              <span class="task-time">(7:00 PM - 10:00 PM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+
+            <li class="task-item evening">
+              <input
+                type="checkbox"
+                class="task-checkbox"
+                onchange="toggleTask(this)"
+              />
+              <span class="task-text">listen to calm songs from spotify</span>
+              <span class="task-time">(10:00 PM - 11:00 PM)</span>
+              <button class="delete-btn" onclick="deleteTask(this)">×</button>
+            </li>
+          </ul>
+          <div class="progress-bar">
+            <div class="progress-fill" id="evening-progress"></div>
+          </div>
+          <div class="stats" id="evening-stats"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
